@@ -21,7 +21,6 @@
 
 <body>
 <div id="landingpage">
-	<h1 id="landing-page-header">The Earth Won't Scale</h1>
 	<h3 id="landing-page-loader">loading ...</h3>
 </div>  
 
@@ -36,8 +35,8 @@
 			<table>
 				<tr><td>
 					<p class="row-label">Mode</p>
-					<button type="button" class="mode-button selected" id="UN-button" onclick="switchMode('UN')">Unmet Need</button>
-					<button type="button" class="mode-button" id="pop-button" onclick="switchMode('pop')">Impacted Population</button>
+					<button type="button" class="mode-button selected" id="UN-button" onclick="switchMode('UN')">Deficit</button>
+					<button type="button" class="mode-button" id="pop-button" onclick="switchMode('pop')">People Impacted</button>
 					<button type="button" class="mode-button"  id="NC-button" onclick="switchMode('NC')">Natures <br> contribution</button>
 				</td></tr>
 				<tr><td>
@@ -81,20 +80,20 @@
 	
 
 	<div id="distribution-chart">
-		<h2 id="distri-chart-head">People impacted <br> (<p id ="distri-chart-choosen-scenario"></p>) </h2>
+		<h2 id="distri-chart-head">How severe are <br> people Impacted?<br> (<p id ="distri-chart-choosen-scenario"></p>) </h2>
 		<svg id="distribution"></svg>
 		<h3 id="distri-x-axis">Number of people</h3>
 		<h3 id="distri-y-axis">Coastal Hazard</h3>
 	</div> 
 
 	<div id="compare-scenarios">
-		<h1 id="compare-scenario-header">Compare Scenarios</h1>
+		<h1 id="compare-scenario-header">Compare Scenarios and Services</h1>
 		<div id="scenario-chart">
-			<h2 id="scenario-chart-head">Change in unmet need<br>compared to 2015</h2>
+			<h2 class="scenario-chart-head">How much has the total <br>deficit changed since 2015?</h2>
 			<svg id="scenario-comparison-svg"></svg>
 		</div> 
 		<div id="population-chart">
-			<h2 id= "population-chart-header">Impacted Population</h2>
+			<h2 class= "scenario-chart-head">How many people are <br> Negatively Impacted? </h2>
 			<svg id="population-comparison-svg"></svg>
 		</div> 
 	</div>

@@ -90,7 +90,7 @@
     margin: auto;
 }
 
-#scenario-chart-head{
+.scenario-chart-head{
     text-align: center;
     margin-bottom: 0;
     font-weight: 300;

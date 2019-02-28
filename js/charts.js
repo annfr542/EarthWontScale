@@ -276,7 +276,6 @@ class SuperScenarioChart{
 		const x = d3.scaleBand().range([0,this.width]);
 			x.domain(data.map((d,i) => this.serviceLabels[getServiceIndex(i)])).padding(0.1);
 		
-		
 		// Add new bars
 		this.g.selectAll(".bar")
 			.data(data)
@@ -295,14 +294,14 @@ class SuperScenarioChart{
 				.attr("x", (d,i) => {
 					switch(getScenarioIndex(i)) {
 						case 0:
-							return x(this.serviceLabels[getServiceIndex(i)]) ;
+							return x(this.serviceLabels[getServiceIndex(i)]) + 7;
 						case 1:
-							return x(this.serviceLabels[getServiceIndex(i)]) + 18;
+							return x(this.serviceLabels[getServiceIndex(i)]) + x.bandwidth() - 38 ;
 						case 2:
-							return x(this.serviceLabels[getServiceIndex(i)]) + 36;
+							return x(this.serviceLabels[getServiceIndex(i)]) + 2*x.bandwidth() - 83 ;
 					  }	
 				})
-				.attr("width", d => x.bandwidth() - 36)
+				.attr("width", d => x.bandwidth() - 45)
 				.attr("height", d => Math.abs(y(d) - y(0)))
 				.on("mouseover", (d,i,nodes) => {	
 					const tooltipClass = d > 0 ?'<p class="tooltip_positive">':'<p class="tooltip_negative">';	
@@ -470,7 +469,6 @@ class SuperPopulationChart{
 
 		// calculate changes
 		let data = this.getTotalPopulation(focusedData);
-		const current_data = [1000000, 30000,10000];
 		// Scale axis
 		const y = d3.scaleLinear()
 			.range([this.height, 0])
@@ -497,24 +495,21 @@ class SuperPopulationChart{
 				.attr("x", (d,i) => {
 					switch(getScenarioIndex(i)) {
 						case 0:
-							return x(this.serviceLabels[getServiceIndex(i)]) ;
+							return x(this.serviceLabels[getServiceIndex(i)]) + 7;
 						case 1:
-							return x(this.serviceLabels[getServiceIndex(i)]) + 18;
+							return x(this.serviceLabels[getServiceIndex(i)]) + x.bandwidth() - 38 ;
 						case 2:
-							return x(this.serviceLabels[getServiceIndex(i)]) + 36;
+							return x(this.serviceLabels[getServiceIndex(i)]) + 2*x.bandwidth() - 83 ;
 					  }	
 				})
-				.attr("width", d => x.bandwidth() - 36)
+				.attr("width", d => x.bandwidth() - 45)
 				.attr("height", d => Math.abs(y(d) - y(0)))
 				.on("mouseover", (d,i,nodes) => {	
-					const tooltipClass = (d - current_data[getScenarioIndex(i)]) > 0 ?'<p class="tooltip_positive"> +':'<p class="tooltip_negative"> ';	
 					this.tooltip.transition()		
 						.duration(200)		
 						.style("opacity", .9);	
 						
-					this.tooltip.html('<p class="tooltip_scenario">'+ this.scenarioLabels[getScenarioIndex(i)] + '</p>' +
-						tooltipClass + round(d - current_data[getScenarioIndex(i)]) + '</p>' +
-						'<p class="tooltip_scenario">since 2015</p>');
+					this.tooltip.html('<p class="tooltip_scenario">'+ this.scenarioLabels[getScenarioIndex(i)] + '</p>' +round(d));
 					this.tooltip
 						.style("left", (d3.event.pageX - 40 ) + "px")
 						.style("top", (d3.event.pageY - 60) + "px")
