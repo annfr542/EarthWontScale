@@ -1,4 +1,4 @@
 # EarthWontScale
-link to viz https://annfr542.github.io/TheEarthWontScale/
+Visualisation project for the Natural Capital Project at Stanford university.  
 
 Final version http://viz.naturalcapitalproject.org/ipbes/
